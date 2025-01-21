@@ -91,6 +91,7 @@ const Target = () => {
         whole: 0,
         precise: '0.0',
     });
+    const [currentShot, setCurrentShot] = useState('0.0');
 
     const drawCircle = (ctx: CanvasRenderingContext2D, cx: number, cy: number, radius: number, fill: string, stroke: string) => {
         ctx.beginPath();
@@ -189,9 +190,10 @@ const Target = () => {
             const decimalScore = (calculateDecimalScore(shot[0], shot[1]) + '');
             const intScore = parseInt(decimalScore);
 
-            console.log(decimalScore);
             total += intScore;
             totalDecimal += parseFloat(decimalScore);
+
+            setCurrentShot(decimalScore);
 
             const deviationX = shot[0] * SCALE;
             const deviationY = shot[1] * SCALE;
@@ -260,6 +262,9 @@ const Target = () => {
         </div>
         <br/>
         <div className={'score'}>
+            {currentShot}
+        </div>
+        <div className={'score'}>
             {score.whole}
         </div>
         <div className={'score'}>
@@ -274,7 +279,7 @@ const Wrapper = styled.div`
     width: 100%;
     height: 100%;
     display: flex;
-    justify-content: flex-start;
+    justify-content: space-around;
     align-items: flex-start;
     background: #242424;
 
