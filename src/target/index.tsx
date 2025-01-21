@@ -205,7 +205,7 @@ const Target = () => {
 
             console.log(decimalScore);
             total += intScore;
-            totalDecimal = parseFloat(decimalScore);
+            totalDecimal += parseFloat(decimalScore);
 
             const deviationX = shot[0] * SCALE;
             const deviationY = shot[1] * SCALE;
