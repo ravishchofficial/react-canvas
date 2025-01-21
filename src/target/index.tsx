@@ -102,25 +102,25 @@ const Target = () => {
         ctx.stroke();
     };
 
-    const drawPlus = (ctx: CanvasRenderingContext2D, centerX: number, centerY: number, size = 20, fill: string, stroke: string) => {
-        // Set plus properties
-        ctx.beginPath();
-        ctx.fillStyle = fill;
-        ctx.strokeStyle = stroke;
-        ctx.lineWidth = 3;
+    // const drawPlus = (ctx: CanvasRenderingContext2D, centerX: number, centerY: number, size = 20, fill: string, stroke: string) => {
+    //     // Set plus properties
+    //     ctx.beginPath();
+    //     ctx.fillStyle = fill;
+    //     ctx.strokeStyle = stroke;
+    //     ctx.lineWidth = 3;
         
-        // Draw vertical line
-        ctx.moveTo(centerX, centerY - size);
-        ctx.lineTo(centerX, centerY + size);
+    //     // Draw vertical line
+    //     ctx.moveTo(centerX, centerY - size);
+    //     ctx.lineTo(centerX, centerY + size);
         
-        // Draw horizontal line
-        ctx.moveTo(centerX - size, centerY);
-        ctx.lineTo(centerX + size, centerY);
+    //     // Draw horizontal line
+    //     ctx.moveTo(centerX - size, centerY);
+    //     ctx.lineTo(centerX + size, centerY);
         
-        ctx.fill();
-        ctx.stroke();
-        ctx.closePath();
-      };
+    //     ctx.fill();
+    //     ctx.stroke();
+    //     ctx.closePath();
+    //   };
 
     const prevShot = () => {
         let count = Math.max(shotCounter - 1, 0);
@@ -153,20 +153,6 @@ const Target = () => {
         });
         setShotCounter(Math.min(maxCount, count));
     };
-
-    const handleKeypress = (e: any) => {
-        console.log(e);
-        if (!shotByShot) return;
-
-        if (e.code === 'ArrowLeft') {
-            nextShot();
-        }
-
-        if (e.code === 'ArrowRight') {
-            prevShot();
-        }
-
-    }
 
   useEffect(() => {
     const canvas = canvasRef.current as HTMLCanvasElement;
